@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import ExpenseItem from './components/Expenceses/ExpenseItem';
+import Card from './components/UI/Card';
+import './styles.css';
+
+// don't change the Component name "App"
+export default function App() {
+    let products = [
+        {
+            title: "ExpenseItem 1",
+            amount: 10,
+            date: new Date('2023-04-29')
+        },
+        {
+            title: "ExpenseItem 2",
+            amount: 20,
+            date: new Date('2023-04-30')
+        }
+    ]
+    return (
+        <div>
+            <h1>My Demo Shop</h1>
+            <Card>
+            <ExpenseItem title={products[0].title} amount={products[0].amount} date={products[0].date.toISOString()} />
+            
+            <ExpenseItem title={products[1].title} amount={products[1].amount} date={products[1].date.toISOString()} />
+            </Card>
+        </div>
+    );
 }
-
-export default App;
