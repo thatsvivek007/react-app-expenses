@@ -1,44 +1,26 @@
-.expense-form {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.expense-form form {
-  width: 500px;
-  background-color: #a78af1;
-  padding: 10px;
-  border-radius: 10px;
-  color: #000;
-}
-.form-group {
-    margin-bottom: 20px;
+.new-expense__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
   }
   
-  label {
-    display: inline-block;
-    margin-bottom: 10px;
+  .new-expense__control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
   }
   
-  .form-control {
-    padding: 10px;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
+  .new-expense__control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
   }
   
-  .btn-primary {
-    background-color: #007bffd6;
-    border-color: #007bff;
-    border-radius: 10px;
-    padding: 10px 20px;
-    color: #fff;
-    font-weight: 600;
+  .new-expense__actions {
+    text-align: right;
   }
-  
-  .btn-primary:hover {
-    background-color: #0069d9;
-    border-color: #0062cc;
-  }
-  

@@ -1,32 +1,45 @@
 import React, { useState } from 'react';
 
-import ExpenseItem from './components/Expenceses/ExpenseItem';
-import ExpenseForm from './components/NewExpense/ExpenseForm';
-import Card from './components/UI/Card';
-import './styles.css';
+import NewExpense from './components/NewExpense/NewExpense';
+import Expenses from './components/Expences/Expenses';
 
-// don't change the Component name "App"
-export default function App() {
-    const [items, setitems] = useState([])
-    let expensesContent = <p>No expences found!</p>
-    if(items.length){
-        expensesContent = items.map((expense)=> <ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date.toISOString()} />)
-    }
-    function newExpenseHandler(data){
-        setitems((oldData)=>{
-            data.date = new Date(data.date);
-            data.id = oldData.length + 1
-            return [data, ...oldData]
-        })
-    }
-    return (
-        <div>
-            <h1>My Demo Shop</h1>
+const DUMMY_EXPENSES = [
+  {
+    id: 'e1',
+    title: 'Toilet Paper',
+    amount: 94.12,
+    date: new Date(2020, 7, 14),
+  },
+  { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+  {
+    id: 'e3',
+    title: 'Car Insurance',
+    amount: 294.67,
+    date: new Date(2021, 2, 28),
+  },
+  {
+    id: 'e4',
+    title: 'New Desk (Wooden)',
+    amount: 450,
+    date: new Date(2021, 5, 12),
+  },
+];
 
-            <ExpenseForm newExpenseHandler={newExpenseHandler}></ExpenseForm>
-            <Card>
-                {expensesContent}
-            </Card>
-        </div>
-    );
-}
+const App = () => {
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
+  return (
+    <div>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
+    </div>
+  );
+};
+
+export default App;
