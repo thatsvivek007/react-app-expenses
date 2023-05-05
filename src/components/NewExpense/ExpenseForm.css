@@ -6,9 +6,10 @@
 }
 .expense-form form {
   width: 500px;
-  background-color: black;
+  background-color: #a78af1;
   padding: 10px;
   border-radius: 10px;
+  color: #000;
 }
 .form-group {
     margin-bottom: 20px;
